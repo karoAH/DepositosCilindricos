@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="14" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.ejemplos.depositos.controlador.DepositosController">
+    <padding>
+        <Insets top="20" right="22" bottom="20" left="22"/>
+    </padding>
+
+    <Label text="Calculadora de Depósitos Cilíndricos">
+        <font>
+            <Font name="System Bold" size="18"/>
+        </font>
+    </Label>
+
+    <Label text="Selecciona el tipo de medida y captura los datos en metros (m):" wrapText="true"/>
+
+    <HBox spacing="16">
+        <RadioButton fx:id="rbRadio" text="Radio (r)"/>
+        <RadioButton fx:id="rbDiametro" text="Diámetro (d)"/>
+    </HBox>
+
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="130"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Valor de medida (m):" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtMedida" promptText="Ej. 3.0 o 6.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Altura (h en m):" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtAltura" promptText="Ej. 4.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button text="Calcular" onAction="#onCalcular" defaultButton="true"/>
+        <Button text="Limpiar" onAction="#onLimpiar"/>
+    </HBox>
+
+    <Separator/>
+
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints minWidth="130"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Área total:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label fx:id="lblArea" text="0.0000 m²" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <font>
+                <Font name="System Bold" size="14"/>
+            </font>
+        </Label>
+
+        <Label text="Volumen:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label fx:id="lblVolumen" text="0.0000 m³" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+                <Font name="System Bold" size="14"/>
+            </font>
+        </Label>
+    </GridPane>
+</VBox>
